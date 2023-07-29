@@ -1,8 +1,8 @@
 import os, glob, getpass, shutil
 
 def delete_exefiles_from_downloads_dir():
-    # deleting the exe files
-    downloads_directory = glob.glob('c:\\Users\\user\\Downloads\\*.exe')
+    username = getpass.getuser()
+    downloads_directory = glob.glob('c:\\Users\\' + username +'\\Downloads\\*.exe')
     exe_found = False
     
     for exe_file in downloads_directory:
@@ -22,7 +22,8 @@ def delete_temp_files():
     return
 
 def delete_temp2_files():
-    temp2_folder = 'C:\\Users\\user\\AppData\\Local\\Temp'
+    username = getpass.getuser()
+    temp2_folder = 'C:\\Users\\' + username + '\\AppData\\Local\\Temp'
     shutil.rmtree(temp2_folder, ignore_errors=True)
     print('All files in the %temp% folder have been deleted.') 
     return
